@@ -18,6 +18,8 @@ const Register = () => {
     const { user, isLoading, error } = useSelector((state) => state.auth);
 
     useEffect(() => {
+        // Scroll to top so the form is visible without user needing to scroll up
+        window.scrollTo({ top: 0, behavior: 'instant' });
         if (user) {
             navigate('/');
         }

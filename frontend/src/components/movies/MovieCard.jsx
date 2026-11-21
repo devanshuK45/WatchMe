@@ -55,16 +55,17 @@ const MovieCard = ({ movie }) => {
     const movieId = movie.id || movie._id;
     const isMovie = movie.title || movie.category === 'Movies' || !movie.name;
 
+    const detailPath = isMovie ? `/movie/${movieId}` : `/tv/${movieId}`;
+
     return (
-        <div className="movie-card">
+        <Link to={detailPath} className="movie-card">
             <div className="card-image-wrapper">
                 <img src={imageUrl} alt={movie.title || movie.name} loading="lazy" />
                 <div className="card-overlay">
                     <div className="card-actions">
-                        {/* Use title presence to distinguish movie from tv */}
-                        <Link to={isMovie ? `/movie/${movieId}` : `/tv/${movieId}`} className="play-btn">
+                        <span className="play-btn">
                             <Play fill="currentColor" size={24} />
-                        </Link>
+                        </span>
                         <button
                             className={`add-btn ${isFavorite ? 'active' : ''}`}
                             title={isFavorite ? "Remove from Favorites" : "Add to Favorites"}
@@ -79,7 +80,7 @@ const MovieCard = ({ movie }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
 

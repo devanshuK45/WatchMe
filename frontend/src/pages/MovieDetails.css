@@ -2,9 +2,7 @@
     position: relative;
     min-height: calc(100vh - 80px);
     padding-bottom: 4rem;
-    /* Prevent layout thrashing */
-    contain: layout style;
-    /* Force GPU layer */
+    /* NOTE: 'contain: layout style' would trap fixed children — removed */
     transform: translateZ(0);
 }
 

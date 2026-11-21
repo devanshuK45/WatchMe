@@ -89,6 +89,10 @@ const MovieDetails = () => {
                 mediaType: isTv ? 'tv' : 'movie'
             }));
         }
+        // Auto-scroll to trailer section after a short tick so the DOM updates first
+        setTimeout(() => {
+            trailerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 50);
     }, [user, movie, dispatch, isTv]);
 
     const closeTrailer = useCallback(() => {

@@ -165,18 +165,20 @@ const Home = () => {
             <div className="home-container">
                 <Skeleton type="hero" />
                 <div className="container content-sections">
-                    <section className="movie-row-section">
-                        <div className="skeleton-title-row">
-                            <Skeleton type="rect" width="200px" height="2rem" />
-                        </div>
-                        <div className="movie-carousel-skeleton">
-                            {[...Array(6)].map((_, i) => (
-                                <div key={i} className="movie-row-item">
-                                    <Skeleton type="movie-card" />
-                                </div>
-                            ))}
-                        </div>
-                    </section>
+                    {[...Array(3)].map((_, si) => (
+                        <section key={si} className="movie-row-section">
+                            <div className="skeleton-title-row">
+                                <Skeleton type="rect" width="200px" height="2rem" />
+                            </div>
+                            <div className="movie-carousel-skeleton">
+                                {[...Array(6)].map((_, i) => (
+                                    <div key={i} className="movie-row-item">
+                                        <Skeleton type="movie-card" />
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    ))}
                 </div>
             </div>
         );

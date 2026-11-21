@@ -15,6 +15,7 @@ const Login = () => {
     const { user, isLoading, error } = useSelector((state) => state.auth);
 
     useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' });
         if (user) {
             navigate('/');
         }
