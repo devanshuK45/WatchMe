@@ -27,6 +27,11 @@ app.get('/', (req, res) => {
     res.send('WatchMe Backend Running...');
 });
 
+// Health check endpoint for cold-start detection
+app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'ok', timestamp: Date.now() });
+});
+
 // Database Connection
 const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/watchme';
 console.log('Attempting to connect to MongoDB...', mongoURI.split('@').pop());

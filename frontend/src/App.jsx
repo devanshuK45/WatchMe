@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { ThemeProvider } from './context/ThemeContext';
+import RenderWakeUp from './components/ui/RenderWakeUp';
 
 // Pages
 import Home from './pages/Home';
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <ThemeProvider>
+      <RenderWakeUp />
       <div className="app-container">
         <Navbar />
         <main className="main-content">

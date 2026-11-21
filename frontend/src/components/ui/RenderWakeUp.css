@@ -1,0 +1,147 @@
+/* =============================================
+   RenderWakeUp — Cold Start Overlay
+   ============================================= */
+
+.rwu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  animation: rwuFadeIn 0.4s ease;
+}
+
+@keyframes rwuFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.rwu-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2.5rem 2rem;
+  max-width: 380px;
+  width: 90%;
+  background: rgba(20, 20, 20, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 0 60px rgba(229, 9, 20, 0.15), 0 20px 40px rgba(0,0,0,0.6);
+  text-align: center;
+  animation: rwuSlideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes rwuSlideUp {
+  from { transform: translateY(24px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* Big icon */
+.rwu-icon {
+  font-size: 3rem;
+  animation: rwuBounce 1.6s ease-in-out infinite;
+}
+
+@keyframes rwuBounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* Spinner ring */
+.rwu-spinner {
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+
+.rwu-spinner span {
+  position: absolute;
+  inset: 0;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  animation: rwuSpin 1.2s linear infinite;
+}
+
+.rwu-spinner span:nth-child(1) {
+  border-top-color: #e50914;
+}
+.rwu-spinner span:nth-child(2) {
+  border-right-color: rgba(229, 9, 20, 0.5);
+  animation-delay: -0.3s;
+  inset: 6px;
+}
+.rwu-spinner span:nth-child(3) {
+  border-bottom-color: rgba(229, 9, 20, 0.25);
+  animation-delay: -0.6s;
+  inset: 12px;
+}
+.rwu-spinner span:nth-child(4) {
+  border-left-color: rgba(229, 9, 20, 0.1);
+  animation-delay: -0.9s;
+  inset: 18px;
+}
+
+@keyframes rwuSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Title */
+.rwu-title {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  min-height: 1.8rem;
+}
+
+/* Sarcastic rotating line */
+.rwu-line {
+  font-size: 0.9rem;
+  color: #a3a3a3;
+  min-height: 2.5rem;
+  transition: opacity 0.4s ease;
+  line-height: 1.5;
+}
+
+/* Badge + elapsed row */
+.rwu-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.rwu-badge {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(229, 9, 20, 0.15);
+  border: 1px solid rgba(229, 9, 20, 0.35);
+  color: #e50914;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.rwu-elapsed {
+  font-size: 0.78rem;
+  color: #737373;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Sub text */
+.rwu-sub {
+  font-size: 0.8rem;
+  color: #737373;
+  line-height: 1.6;
+}
+
+.rwu-sub strong {
+  color: #a3a3a3;
+}
