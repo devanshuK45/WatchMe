@@ -52,10 +52,12 @@
     padding: 1rem;
     opacity: 0;
     transition: opacity var(--transition-normal);
+    pointer-events: none; /* 👈 let clicks through when invisible */
 }
 
 .movie-card:hover .card-overlay {
     opacity: 1;
+    pointer-events: auto; /* re-enable when overlay is visible */
 }
 
 .card-actions {

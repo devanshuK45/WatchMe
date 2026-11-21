@@ -175,7 +175,11 @@
 }
 
 [data-theme='light'] .hero-overview {
-    color: #1f2937;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow:
+        0 1px 3px rgba(0,0,0,0.9),
+        0 2px 8px rgba(0,0,0,0.7),
+        0 4px 20px rgba(0,0,0,0.5);
 }
 
 .hero-actions {
